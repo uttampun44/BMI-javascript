@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  *{
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+  }
+ .head1{
+     width: 800px;
+     height: 60px;
+     border-color: black;
+     background-color: silver;
+     position: relative;
+     left: 15%;
+     border-radius: 3px black;
+     border-style: groove;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;   
+ } 
+ .head1 label{
+     color: white;
+     font-size: 25px;
+     font:bolder;   
+ }
+.form-group{
+    width: 800px;
+    height: 60px;
+    border-color: black;
+    border-radius: 2px black;
+    border-style: outset;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    left: 15%
+}
+.form-group label{
+    font: bolder;
+    color: cornflowerblue;
+    font-size: 25px;
+}
+.form-group input[type=number]{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+ button{
+    width: 200px;
+    height: 40px;
+    color: white;
+    background-color: green;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   position: relative;
+   left: 15%;
+   border: green;
+   border-radius: 2px green;
+   border-style: groove;
+}
+.last{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+    background-color: grey;
+    color: white;
+    position: relative;
+    left: 15%;
+    height: 60px;
+}
+.last label{
+    font: bolder;
+    font-size: 25px;
+}
+</style>
+<body>
+    <div class="head1">
+        <label>BMI CALCULATOR</label>
+    </div>
+    <form onsubmit="return false">
+        <div class="form-group">
+            <label>WEIGHT:</label>
+            <input type="number" id="weight" class="form-control" placeholder="weight in kgs" required>
+        </div>
+        <div class="form-group">
+          <label>Height:</label>
+          <input type="text" id="height" class="form-control" placeholder="height in feet" required>
+        </div>
+        <div class="form-group">
+            <label> CHECK BMI:</label>
+            <input type="number" id="bmivalue" class="form-control">
+          </div>
+         <div>
+             <button type="submit" class="btn" onclick="getbmiValue()">CHECK BMI</button>
+         </div>
+         <div class="last">
+           <label>HEALTHY BMI between 19 and 25.</label>
+         </div>
+    </form>
+    <script type="text/javascript">  
+
+    function getbmiValue() {
+     var weight = document.getElementById("weight").value;
+     var height = document.getElementById("height").value;
+
+     height = height * 12;
+     height = height * 0.025; // now height in metres
+
+     var newbmivalue = weight/(Math.pow(height, 2));
+     
+     var newbmivalue = Math.round(newbmivalue);
+     document.getElementById("bmivalue").value = newbmivalue;    
+    }
+    </script>
+</body>
+</html>
